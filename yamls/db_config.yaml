@@ -1,0 +1,8 @@
+database:
+  postgres:
+    schema: galchemy
+    table:
+      weighted: weighted
+      directed: directed
+    user: juhi
+    password: 1234

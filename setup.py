@@ -9,5 +9,8 @@ setup(
     author_email='',
     license='',
     packages=['src'],
-    install_requires=[],
+    install_requires=['sqlalchemy',
+                      'pyyaml',
+                      'networkx'
+    ],
 )
