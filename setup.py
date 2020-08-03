@@ -13,6 +13,10 @@ setup(
                       'pyyaml',
                       'networkx',
                       'Path',
-                      'pandas'
+                      'pandas',
+                      'numpy',
+                      'pytest',
+                      'psycopg2',
+                      'path'
     ],
 )
