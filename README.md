@@ -1,6 +1,6 @@
-##Package name - graphalchemy
+## Package name - graphalchemy
 
-###Recommended method is to create a virtual env in python3
+### Recommended method is to create a virtual env in python3
 Install pip using `python3 -m pip install --user --upgrade pip`
 
 Install virtualenv using `python3 -m pip install --user virtualenv`
@@ -8,11 +8,11 @@ Install virtualenv using `python3 -m pip install --user virtualenv`
 Create a virtual environment using `python3 -m venv {environment name, say, venv}`
 
 
-###Install postgresql
+### Install postgresql
 
-###Copy the yaml in yamls dir to `~.etc/config/` dir and both csv in data dir to `~/etc/data/` dir
+### Copy the yaml in yamls dir to `~.etc/config/` dir and both csv in data dir to `~/etc/data/` dir
 
-###Create database `galchemy`
+### Create database `galchemy`
 
 Run `python src/graphalchemy/create_table.py` 
 to create and insert data into weighted and directed 
