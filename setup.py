@@ -11,6 +11,7 @@ setup(
     packages=['src'],
     install_requires=['sqlalchemy',
                       'pyyaml',
-                      'networkx'
+                      'networkx',
+                      'Path'
     ],
 )
