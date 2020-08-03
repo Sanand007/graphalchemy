@@ -32,3 +32,15 @@ Public apis available are
     You can run the available public api after importing
     openapi and calling shortest_path('b', 'f') and 
     successor('b').
+    
+    3. Get the union of two graphs by calling union api with
+    two disjoint graphs (graphs should be both edge and vertex
+    disjoints)
+    
+    4. Get the intersection of two graphs by calling intersection
+    api with two graphs(both graphs should have same set of
+    nodes)
+    
+    5. Get the difference between two graphs by calling
+    difference api with two graph which will return a new
+    graph which contains edged in first but not in second graph

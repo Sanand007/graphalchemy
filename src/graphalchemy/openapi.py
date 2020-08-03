@@ -35,3 +35,51 @@ def successor(of_vertex) -> list:
     output: list
     """
     return _successor(of_vertex)
+
+
+def _intersection(G, H) -> nx.Graph():
+    try:
+        return nx.intersection(G, H)
+    except BaseException:
+        return 'Exception creating intersection, both graphs must have same node set'
+
+
+def intersection(G, H) -> nx.Graph():
+    """
+    takes input as two graphs and returns intersection graph
+    input: Graph object, Graph object
+    output: Graph object
+    """
+    return _intersection(G, H)
+
+
+def _union(G, H) -> nx.Graph():
+    try:
+        return nx.union(G, H)
+    except BaseException:
+        return 'Specified graph must be disjoint'
+
+
+def union(G, H) -> nx.Graph():
+    """
+    takes input as two graphs and returns union graph
+    input: Graph object, Graph object
+    output: Graph object
+    """
+    return _union(G, H)
+
+
+def _difference(G, H) -> nx.Graph():
+    try:
+        return nx.difference(G, H)
+    except BaseException:
+        return 'Specified graph must be disjoint'
+
+
+def difference(G, H) -> nx.Graph():
+    """
+    takes input as two graphs and returns difference of those two graphs
+    input: Graph object, Graph object
+    output: Graph object
+    """
+    return _difference(G, H)
