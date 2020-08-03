@@ -1,4 +1,4 @@
-##package name - graphalchemy
+##Package name - graphalchemy
 
 ###Recommended method is to create a virtual env in python3
 Install pip using `python3 -m pip install --user --upgrade pip`

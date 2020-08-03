@@ -7,7 +7,10 @@ import pandas as pd
 from pathlib import Path
 
 
-def create_weighted_table():
+def weighted_table():
+    """
+    Create and insert data into weighted table
+    """
     engine = db_engine()
     meta = MetaData(engine)
     config = read_config()
@@ -35,7 +38,10 @@ def create_weighted_table():
         return 'error creating weighted table'
 
 
-def create_directed_table():
+def directed_table():
+    """
+    Create and insert data into the directed table
+    """
     engine = db_engine()
     meta = MetaData(engine)
     config = read_config()
@@ -63,5 +69,5 @@ def create_directed_table():
 
 
 if __name__ == '__main__':
-    # print(create_weighted_table())
-    print(create_directed_table())
+    print(weighted_table())
+    print(directed_table())
