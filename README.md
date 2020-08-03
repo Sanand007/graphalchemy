@@ -10,7 +10,7 @@ Create a virtual environment using `python3 -m venv {environment name, say, venv
 
 ### Install postgresql
 
-### Copy the yaml in yamls dir to `~.etc/config/` dir and both csv in data dir to `~/etc/data/` dir
+### Copy the yaml in yamls dir to `~/.etc/config/` dir and both csv in data dir to `~/.etc/data/` dir
 
 ### Create database `galchemy`
 
