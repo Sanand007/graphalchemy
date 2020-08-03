@@ -14,6 +14,6 @@ def _create_directed_graph() -> nx.Graph():
 
 def create_directed_graph() -> nx.Graph():
     """
-    create a networkx graph with weighted data and returns the graph object
+    create a networkx graph with directed data and returns the graph object
     """
     return _create_directed_graph()

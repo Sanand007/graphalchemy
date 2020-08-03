@@ -3,7 +3,7 @@ from src.graphalchemy.directed import create_directed_graph
 import networkx as nx
 
 
-def _shortest_path(from_vertex, to_vertex) -> nx.shortest_path():
+def _shortest_path(from_vertex, to_vertex) -> list:
     graph = create_weighted_graph()
     try:
         return nx.shortest_path(graph, from_vertex, to_vertex, weight='weight')
@@ -11,7 +11,7 @@ def _shortest_path(from_vertex, to_vertex) -> nx.shortest_path():
         return 'No path exists between given points'
 
 
-def shortest_path(from_vertex, to_vertex) -> nx.shortest_path():
+def shortest_path(from_vertex, to_vertex) -> list:
     """
     takes input as to and from vertex and returns shortest path between them if exists
     input: str, str
@@ -25,7 +25,7 @@ def _successor(of_vertex) -> list:
     try:
         return list(graph.successors(of_vertex))
     except BaseException:
-        return 'No scuuessor'
+        return 'No successor'
 
 
 def successor(of_vertex) -> list:
@@ -35,7 +35,3 @@ def successor(of_vertex) -> list:
     output: list
     """
     return _successor(of_vertex)
-
-
-if __name__ == '__main__':
-    print(successor('b'))

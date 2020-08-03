@@ -1,0 +1,7 @@
+id,vertex,connection,weight
+1,b,a,1
+2,b,c,2
+3,c,f,5
+4,d,c,4
+5,e,d,6
+6,d,b,3

@@ -12,6 +12,7 @@ setup(
     install_requires=['sqlalchemy',
                       'pyyaml',
                       'networkx',
-                      'Path'
+                      'Path',
+                      'pandas'
     ],
 )

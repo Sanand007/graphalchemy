@@ -2,7 +2,7 @@ database:
   postgres:
     schema: galchemy
     table:
-      weighted: weighted
-      directed: directed
+      weighted: weighted_table
+      directed: directed_table
     user: juhi
     password: '1234'

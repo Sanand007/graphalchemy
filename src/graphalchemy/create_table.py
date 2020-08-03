@@ -1,39 +1,67 @@
 from sqlalchemy import Table, Column, Integer, String, MetaData
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+from src.graphalchemy.read_dbcfg import read_config
 from src.graphalchemy.db_engine import db_engine
-meta=MetaData()
-
-
-def create_weighted_table_structure():
-    weighted = Table(
-        'weighted', meta,
-        Column('id', String, primary_key=True),
-        Column('vertex', String),
-        Column('connected_to', String),
-        Column('weight', Integer)
-    )
-    return weighted
+import pandas as pd
+from pathlib import Path
 
 
 def create_weighted_table():
     engine = db_engine()
-    meta.create_all(create_weighted_table_structure(), engine)
+    meta = MetaData(engine)
+    config = read_config()
+    weighted = Table(
+        config['database']['postgres']['table']['weighted'], meta,
+        Column('id', Integer, primary_key=True),
+        Column('vertex', String),
+        Column('connection', String),
+        Column('weight', Integer)
+    )
+    try:
+        weighted.create()
+        try:
+            data = pd.read_csv(str(Path.home()) + '/.etc/data/weighted.csv')
+            print(data)
+            data.to_sql(config['database']['postgres']['table']['weighted'], engine, if_exists='replace', index = False)
+            # Session = sessionmaker(bind=engine.connect())
+            # session = Session()
+            # session.bulk_insert_mappings(weighted, data.to_dict(orient="records"))
+            # session.close()
+            return 'successfully created and inserted data into weighted table'
+        except BaseException:
+            return 'error inserting data into weighted table'
+    except BaseException:
+        return 'error creating weighted table'
 
 
-# Base = declarative_base()
-#
-#
-# class weighted(Base):
-#     __tablename__ = 'weighted'
-#
-#     id = Column(String, primary_key=True)
-#     vertex = Column(String)
-#     connected_to = Column(String)
-#     weight = Column(Integer)
-#
-#     def __repr__(self):
-#         return "<User(name='%s', fullname='%s', nickname='%s')>" % (self.name, self.fullname, self.nickname)
+def create_directed_table():
+    engine = db_engine()
+    meta = MetaData(engine)
+    config = read_config()
+    directed = Table(
+        config['database']['postgres']['table']['directed'], meta,
+        Column('id', String, primary_key=True),
+        Column('vertex', String),
+        Column('connection', String),
+        Column('weight', Integer)
+    )
+    try:
+        directed.create()
+        try:
+            data = pd.read_csv(str(Path.home()) + '/.etc/data/directed.csv')
+            data.to_sql(config['database']['postgres']['table']['directed'], engine, if_exists='replace', index=False)
+            # Session = sessionmaker(bind=engine.connect())
+            # session = Session()
+            # session.bulk_insert_mappings(directed, data.to_dict(orient="records"))
+            # session.close()
+            return 'successfully created and inserted data into directed table'
+        except BaseException:
+            return 'error inserting data into directed table'
+    except BaseException:
+        return 'error creating directed table'
 
 
 if __name__ == '__main__':
-    create_weighted_table()
+    # print(create_weighted_table())
+    print(create_directed_table())
