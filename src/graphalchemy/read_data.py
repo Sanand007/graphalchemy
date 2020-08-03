@@ -22,10 +22,10 @@ def read_weighted_data(table_name) -> list:
     return _read_weighted_data(table_name)
 
 
-def _read_directed_data() -> list:
+def _read_directed_data(table_name) -> list:
     try:
         engine = db_engine()
-        weighted_table = db.Table('directed', db.MetaData(), autoload=True, autoload_with=engine)
+        weighted_table = db.Table(table_name, db.MetaData(), autoload=True, autoload_with=engine)
         query = db.select([weighted_table])
         ResultProxy = engine.connect().execute(query)
         data = ResultProxy.fetchall()
@@ -34,8 +34,8 @@ def _read_directed_data() -> list:
         return None
 
 
-def read_directed_data() -> list:
+def read_directed_data(table_name) -> list:
     """
     read directed data from database and return a list containing data
     """
-    return _read_directed_data()
+    return _read_directed_data(table_name)
